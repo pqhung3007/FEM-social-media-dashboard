@@ -17,7 +17,7 @@
   --very-dark-blue1: #1e202a;
 
   /** dark theme */
-  --toggle-light: linear gradient #378fe6 to #3eda82;
+  --toggle-dark: linear gradient #378fe6 to #3eda82;
   --very-dark-blue2: #1e202a;
   --very-dark-blue3: #1f212e;
   --dark-desaturated-blue: #252a41;
@@ -56,6 +56,43 @@ header .follower {
   color: var(--dark-grayish-blue);
   font-size: 1.5rem;
   font-weight: 700;
+}
+
+input[type="checkbox"] {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+.toggle-container {
+  display: flex;
+}
+label {
+  cursor: pointer;
+  width: 5.2rem;
+  height: 2.7rem;
+  border-radius: 100px;
+  position: relative;
+  align-self: center;
+  background: var(--toggle-light);
+}
+
+label:after {
+  position: absolute;
+  content: "";
+  top: 3px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+input:checked + label {
+  background: linear-gradient(90deg, #378fe6 0%, #3eda82 100%);
+}
+input:checked + label:after {
+  right: calc(100% - 45px);
+  transform: translateX(-100%);
 }
 
 .main-title {
