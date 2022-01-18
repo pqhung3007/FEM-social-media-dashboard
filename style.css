@@ -9,23 +9,40 @@
   --instagram: linear-gradient(#fdc468, #df4996);
   --youtube: #c4032a;
 
+  --theme-bg: #fff;
+  --card-background: #f0f2fa;
+  --text-color: #1e202a;
+
   /** light theme */
   --toggle-light: #aeb3cb;
-  --pale-blue-light: #f5f7ff;
-  --light-grayish-blue: #f0f2fa;
+  --hover: #f5f7ff;
   --dark-grayish-blue: #63687e;
-  --very-dark-blue1: #1e202a;
 
   /** dark theme */
-  --toggle-dark: linear gradient #378fe6 to #3eda82;
+  /* --toggle-dark: linear gradient #378fe6 to #3eda82;
   --very-dark-blue2: #1e202a;
   --very-dark-blue3: #1f212e;
-  --dark-desaturated-blue: #252a41;
-  --desaturated-blue: #8b97c6;
+  --dark-desaturated-blue: #40486d;
+  --desaturated-blue: #cdced5; */
 }
 
 html {
   font-size: 62.5%;
+}
+
+html[data-theme="dark"] {
+  --theme-bg: #1e202a;
+  --hover: #40486d;
+  --card-background: #252a41;
+  --text-color: #fff;
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 0.5s;
+  transition-delay: 0;
 }
 
 *,
@@ -38,7 +55,7 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  background: #fff;
+  background: var(--theme-bg);
   margin: 3rem;
 }
 
@@ -47,7 +64,7 @@ header {
 }
 
 header .title {
-  color: var(--very-dark-blue1);
+  color: var(--text-color);
   font-size: 3rem;
   font-weight: 700;
 }
@@ -66,6 +83,7 @@ input[type="checkbox"] {
 .toggle-container {
   display: flex;
 }
+
 label {
   cursor: pointer;
   width: 5.2rem;
@@ -90,6 +108,7 @@ label:after {
 input:checked + label {
   background: linear-gradient(90deg, #378fe6 0%, #3eda82 100%);
 }
+
 input:checked + label:after {
   right: calc(100% - 45px);
   transform: translateX(-100%);
@@ -118,14 +137,14 @@ input:checked + label:after {
   margin-top: 3rem;
   display: grid;
   grid-template-columns: repeat (4, 1fr);
-  background-color: var(--light-grayish-blue);
+  background-color: var(--card-background);
   border-radius: 7px;
   padding: 2rem;
 }
 
 .card:hover {
   cursor: pointer;
-  background: var(--pale-blue-light);
+  background: var(--hover);
 }
 
 .card-header {
@@ -153,7 +172,7 @@ input:checked + label:after {
 
 .card-body h1 {
   font-size: 5.5rem;
-  color: var(--very-dark-blue1);
+  color: var(--text-color);
   text-align: center;
 }
 
@@ -214,14 +233,14 @@ input:checked + label:after {
   display: grid;
   grid-template-columns: repeat (2, 1fr);
   height: 20rem;
-  background-color: var(--light-grayish-blue);
+  background-color: var(--card-background);
   border-radius: 7px;
   margin-top: 2rem;
 }
 
 .overview-card:hover {
   cursor: pointer;
-  background: var(--pale-blue-light);
+  background: var(--hover);
 }
 
 .views {
@@ -233,7 +252,7 @@ input:checked + label:after {
 .overview-card h2 {
   font-size: 4rem;
   margin-top: 2rem;
-  color: var(--very-dark-blue1);
+  color: var(--text-color);
   margin: auto;
   grid-column: 1/2;
 }
@@ -380,5 +399,5 @@ input:checked + label:after {
 
 .attribution a {
   text-decoration: none;
-  color: var(--very-dark-blue1);
+  color: var(--text-color);
 }
